@@ -1,0 +1,29 @@
+.header {
+  background-color: var(--header-back-color);
+  display: flex;
+  height: 4rem;
+  justify-content: center;
+}
+
+.header-content {
+  align-items: center;
+  color: var(--header-text-color);
+  display: flex;
+  height: 100%;
+}
+
+.logo {
+  height: 1.25rem;
+  width: 9.6rem;
+}
+
+.nav-left {
+  align-items: center;
+  display: flex;
+}
+
+.sub-menu {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 1.75rem;
+}
