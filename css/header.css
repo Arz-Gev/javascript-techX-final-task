@@ -1,6 +1,7 @@
 .header {
   background-color: var(--header-back-color);
   display: flex;
+  align-items: center;
   height: 4rem;
   justify-content: center;
 }
@@ -10,14 +11,30 @@
   color: var(--header-text-color);
   display: flex;
   height: 100%;
+  margin: 0;
+  width: min(72.9rem, 100%);
+}
+
+.logo {
+  display: block;
+}
+
+.logo-link {
+  margin-left: min(2.5rem, 1.5vw);
+}
+
+.search-icon {
+  margin-right: min(2.5rem, 1.5vw);
+}
+
+.menu-button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  filter: invert(1);
 }
 
 /* ----------------------------------------- NAV LEFT  */
-
-.logo {
-  height: 1.25rem;
-  width: 9.6rem;
-}
 
 .nav-left,
 .nav-right {
@@ -85,4 +102,24 @@
   font-weight: 600;
   margin-left: 1.75rem;
   cursor: pointer;
+}
+
+.en-box {
+  font-size: 0.9rem;
+  padding: 0.19rem 0.31rem;
+  border-radius: 0.25rem;
+  border: solid 1px var(--header-text-color);
+}
+
+.en-box:hover {
+  color: var(--header-back-color);
+  background-color: var(--header-text-color);
+}
+
+/* ----------------------------------------------------------- NAVIGATION MOBILE */
+
+@media screen and (max-width: 768px) {
+  .header-content {
+    display: none;
+  }
 }

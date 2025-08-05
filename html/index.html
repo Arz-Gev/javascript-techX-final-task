@@ -20,10 +20,33 @@
   </head>
   <body>
     <header class="header">
+      <button type="button" class="menu-button">
+        <img
+          width="29px"
+          height="29px"
+          class="nav-item menue-icon"
+          src="/sources/header/mobile-menue-img.svg"
+          alt="plus"
+        />
+      </button>
+      <a class="logo-link" href="/html/index.html">
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcset="/sources/header/mobile-logo.svg"
+            width="55"
+            height="40"
+          />
+          <source
+            media="(min-width: 769px)"
+            srcset="/sources/header/logo.svg"
+            width="154"
+            height="20"
+          />
+          <img src="" alt="logo" class="logo" />
+        </picture>
+      </a>
       <nav class="header-content desktop-width">
-        <a href="/html/index.html"
-          ><img src="/sources/header/logo.svg" alt="logo" class="logo"
-        /></a>
         <div class="nav-left">
           <div class="dropdown-menu">
             <button type="button" class="dropdown-button">Movies</button>
@@ -68,18 +91,18 @@
             src="/sources/header/plus.svg"
             alt="plus"
           />
-          <div class="nav-item"></div>
+          <div class="nav-item en-box">EN</div>
           <div class="nav-item">Login</div>
           <div class="nav-item">Join TMDB</div>
-          <img
-            width="29px"
-            height="29px"
-            class="nav-item"
-            src="/sources/header/search-icon.svg"
-            alt="plus"
-          />
         </div>
       </nav>
+      <img
+        width="29px"
+        height="29px"
+        class="search-icon"
+        src="/sources/header/search-icon.svg"
+        alt="plus"
+      />
     </header>
     <main class="main desktop-width"></main>
     <footer class="footer">
