@@ -1,0 +1,17 @@
+.desktop-none {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-none {
+    display: flex;
+  }
+
+  .mobile-none {
+    display: none;
+  }
+
+  .mobile-block {
+    display: block;
+  }
+}
