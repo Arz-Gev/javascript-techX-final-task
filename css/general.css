@@ -2,10 +2,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  font-family: "Source Sans 3", Arial, sans-serif;
+  text-overflow: ellipsis;
+}
+
+:root {
+  --black: black;
+  --header-back-color: rgba(3, 37, 65, 1);
+  --header-text-color: #fff;
+  --border-grey: rgba(33, 37, 41, 0.2);
 }
 
 .html {
-  font-family: "Source Sans 3", Arial, sans-serif;
   font-size: 16px;
 }
 
@@ -18,11 +28,6 @@ body {
 .body {
   display: flex;
   justify-content: center;
-}
-
-:root {
-  --header-back-color: rgba(3, 37, 65, 1);
-  --header-text-color: #fff;
 }
 
 .desktop-width {
