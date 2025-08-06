@@ -1,18 +1,21 @@
 /* ------------------------------------------------------- MAIN */
-
 .main {
   display: flex;
   flex-direction: column;
   padding: 2rem 0;
 }
+
 /* ------------------------------------------------------- HEADING */
+
 .main-heading {
   font-size: 1.6rem;
   color: var(--black);
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
+
 /* ------------------------------------------------------- MAIN CONTAINERS */
+
 .main-content {
   display: flex;
   flex-direction: row;
@@ -47,150 +50,4 @@
   }
 }
 
-/* --------------------------------------------------------- FORM */
-
-.form-heading {
-  font-weight: 300;
-  font-size: 1rem;
-  margin-bottom: 0.625rem;
-}
-
-.form-button {
-  background-color: var(--light-blue);
-  border: none;
-  color: var(--white);
-  cursor: pointer;
-}
-
-.form-button:hover {
-  background-color: var(--header-back-color);
-}
-
-/* ---------------------------- SELECT OPTION */
-
-.select-option {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 0.75rem;
-  align-items: center;
-  border: none;
-  border-radius: 0.5rem;
-  background-color: var(--background-grey);
-  cursor: pointer;
-}
-
-.select-option:hover {
-  filter: brightness(0.9);
-}
-
-.select-option.colorChange {
-  filter: brightness(0.9);
-}
-
-.options {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  background-color: var(--white);
-  border: 1px solid var(--border-grey);
-  border-radius: 0.25rem;
-  max-height: 14.125rem;
-  padding: 0.25rem 0;
-  width: 12.5rem;
-  z-index: 2;
-  left: 0;
-  top: 90px;
-}
-
-.options.displayOptions {
-  display: flex;
-}
-
-.sort-option {
-  padding: 0.25rem 1rem;
-  background-color: var(--white);
-  border: none;
-  transition: 50ms ease;
-  cursor: pointer;
-}
-
-.sort-option:hover {
-  background-color: var(--background-grey);
-}
-
-.search-button-1 {
-  height: 2.75rem;
-  width: 100%;
-  border-radius: 1.25rem;
-  font-size: 1.2em;
-  font-weight: 600;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.open-close-button {
-  width: 100%;
-  height: 3.125rem;
-  border-radius: 0.75rem;
-  background-color: unset;
-  border: none;
-  padding: 0.875rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.sort-filter {
-  width: 100%;
-  border-radius: 0.75rem;
-  border: 1px solid var(--border-grey);
-  margin-bottom: 0.5rem;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.129);
-  display: flex;
-  flex-direction: column;
-}
-
-.sort-content {
-  display: none;
-  flex-direction: column;
-  border-top: 1px solid var(--border-grey);
-  padding: 0.875rem 1rem;
-  position: relative;
-}
-
-.sort-content.openSort {
-  display: flex;
-}
-
-.filter.openForm {
-  height: 400px;
-}
-
-/* -----------------------------------------------------------POINTER */
-
-.pointer {
-  width: 0.53rem;
-  height: 0.53rem;
-  border-right: black solid 0.19rem;
-  border-bottom: black solid 0.19rem;
-  transform: rotate(-45deg);
-  transition: 80ms ease;
-}
-
-.pointer.open {
-  transform: rotate(45deg);
-}
-
 /* -------------------------------------------------------------- MOVIES SECTION */
-
-.load-button {
-  width: 100%;
-  height: 3.125rem;
-  border-radius: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-}

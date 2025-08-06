@@ -4,20 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Popular Movies — The Movie Database (TMDB)</title>
+
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="/sources/header/title-icon.png"
     />
+
     <link rel="stylesheet" href="/css/general.css" />
     <link rel="stylesheet" href="/css/header.css" />
     <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/main-form.css" />
+    <link rel="stylesheet" href="/css/main-movies.css" />
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/general-media.css" />
+
     <script defer src="/js/header.js"></script>
     <script defer src="/js/sorting.js"></script>
     <script defer src="/js/script.js"></script>
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
     </style>
@@ -218,7 +224,17 @@
         </form>
 
         <div class="movies-container">
-          <div class="movies"></div>
+          <div class="movies">
+            <div class="movie-card">
+              <div class="movie-poster"></div>
+              <div class="movie-data">
+                <h3 class="movie-name">War of the Worlds</h3>
+                <p class="movie-relese-date">Jul 29, 2025</p>
+              </div>
+              <div class="move-rating"></div>
+              <div class="movie-options"></div>
+            </div>
+          </div>
           <button type="button" class="form-button load-button">
             Load More
           </button>
