@@ -68,6 +68,7 @@
     flex-direction: column;
     margin-left: 1rem;
     height: auto;
+    gap: 2.25rem;
   }
 
   .footer-join-logo {

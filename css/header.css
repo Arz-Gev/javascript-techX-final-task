@@ -2,7 +2,7 @@
   background-color: var(--header-back-color);
   display: flex;
   align-items: center;
-  height: 4rem;
+  min-height: 4rem;
   justify-content: center;
   width: 100%;
 }
@@ -157,7 +157,8 @@
   }
 
   .header {
-    position: relative;
+    position: sticky;
+    top: 0px;
     min-height: 4rem;
   }
 
