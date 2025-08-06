@@ -1,5 +1,16 @@
 /* --------------------------------------------------------- FORM */
 
+.sorting {
+  min-width: 16.25rem;
+}
+
+@media screen and (max-width: 768px) {
+  .sorting {
+    min-width: 16.25rem;
+    max-width: none;
+  }
+}
+
 .form-heading {
   font-weight: 300;
   font-size: 1rem;

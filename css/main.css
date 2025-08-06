@@ -20,17 +20,6 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-
-  .sorting {
-    min-width: 16.25rem;
-  }
-}
-
-.movies-container {
-  display: flex;
-  flex-direction: column;
-  margin-left: 2rem;
-  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -49,5 +38,3 @@
     align-items: center;
   }
 }
-
-/* -------------------------------------------------------------- MOVIES SECTION */
