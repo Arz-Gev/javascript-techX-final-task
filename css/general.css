@@ -10,11 +10,13 @@
 
 :root {
   --black: black;
+  --white: white;
   --header-back-color: rgba(3, 37, 65, 1);
   --header-text-color: #fff;
   --header-text-color-2: rgba(255, 255, 255, 0.6);
   --border-grey: rgba(33, 37, 41, 0.2);
   --dark-blue: 3, 37, 65;
+  --footer-join-link-color: rgb(1, 180, 228);
 }
 
 .html {
@@ -22,17 +24,19 @@
 }
 
 .html,
-body {
+.body {
   height: 100%;
   width: 100%;
 }
 
 .body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 
 .desktop-width {
   margin: 0 min(2.5rem, 1.5vw) 0 min(2.5rem, 1.5vw);
-  width: min(82.5rem, 100%);
+  width: min(82.5rem, calc(100% - 3vw));
 }

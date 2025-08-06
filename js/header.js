@@ -1,14 +1,6 @@
-let menuOpen = false;
-
 function showMenu() {
   const mobileMenu = document.querySelector(".header-content");
-  if (menuOpen) {
-    mobileMenu.classList.remove("show");
-    menuOpen = false;
-  } else {
-    mobileMenu.classList.add("show");
-    menuOpen = true;
-  }
+  mobileMenu.classList.toggle("show");
 }
 
 function displayDropdown(str) {

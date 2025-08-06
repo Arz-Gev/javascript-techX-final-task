@@ -21,7 +21,7 @@
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
     </style>
   </head>
-  <body>
+  <body class="body">
     <header class="header">
       <button onclick="showMenu()" type="button" class="menu-button">
         <img
@@ -150,19 +150,49 @@
     </header>
     <main class="main desktop-width"></main>
     <footer class="footer">
-      <div class="footer-content desktop-width"></div>
+      <nav class="footer-content">
+        <div class="footer-join-logo">
+          <img
+            src="/sources/footer/footer-logo.svg"
+            alt="logo"
+            width="130px"
+            height="94px"
+            class="footer-logo"
+          />
+          <a class="join-link" href="#">JOIN THE COMMUNITY</a>
+        </div>
+
+        <div class="footer-links">
+          <h3 class="footer-heading">THE BASICS</h3>
+          <a href="#" class="footer-link">About TMDB</a>
+          <a href="#" class="footer-link">Contact Us</a>
+          <a href="#" class="footer-link">Support Forums</a>
+          <a href="#" class="footer-link">API Documentation</a>
+          <a href="#" class="footer-link">System Status</a>
+        </div>
+
+        <div class="footer-links">
+          <h3 class="footer-heading">GET INVOLVED</h3>
+          <a href="#" class="footer-link">Contribution Bible</a>
+          <a href="#" class="footer-link">Add New Movie</a>
+          <a href="#" class="footer-link">Add New TV Show</a>
+        </div>
+
+        <div class="footer-links">
+          <h3 class="footer-heading">COMMUNITY</h3>
+          <a href="#" class="footer-link">Guidelines</a>
+          <a href="#" class="footer-link">Discussions</a>
+          <a href="#" class="footer-link">Leaderboard</a>
+        </div>
+
+        <div class="footer-links" style="margin-right: 0">
+          <h3 class="footer-heading">LEGAL</h3>
+          <a href="#" class="footer-link">Terms of Use</a>
+          <a href="#" class="footer-link">API Terms of Use</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">DMCA Policy</a>
+        </div>
+      </nav>
     </footer>
   </body>
 </html>
-
-<!-- function showMenu() {
-  const mobileMenu = document.querySelector(".header-content");
-  const left = window.getComputedStyle(mobileMenu).left;
-  if (left === 0) {
-    console.log(left);
-    mobileMenu.classList.remove("show");
-  } else {
-    console.log(left);
-    mobileMenu.classList.add("show");
-  }
-} -->
