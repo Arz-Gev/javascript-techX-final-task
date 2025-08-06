@@ -216,6 +216,10 @@
     }
   }
 
+  .dropdown-content.show-content {
+    display: block;
+  }
+
   .header-more {
     display: block;
     .dropdown-link {

@@ -12,11 +12,17 @@ function showMenu() {
 }
 
 function displayDropdown(str) {
+  const page = window.getComputedStyle(document.querySelector("html"));
+  const width = page.width.match(/\d+/);
   const dropDownContent = document.querySelector("." + str);
   const displayed = window.getComputedStyle(dropDownContent).display;
+
+  if (width[0] > 768) {
+    return;
+  }
   if (displayed === "block") {
-    dropDownContent.style.display = "none";
+    dropDownContent.classList.remove("show-content");
   } else {
-    dropDownContent.style.display = "block";
+    dropDownContent.classList.add("show-content");
   }
 }
