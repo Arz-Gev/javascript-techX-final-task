@@ -17,6 +17,10 @@
   --border-grey: rgba(33, 37, 41, 0.2);
   --dark-blue: 3, 37, 65;
   --footer-join-link-color: rgb(1, 180, 228);
+  --light-blue: rgb(1, 180, 228);
+  --background-grey: rgb(222, 226, 230);
+
+  --exist: 1px solid black;
 }
 
 .html {
@@ -39,4 +43,11 @@
 .desktop-width {
   margin: 0 min(2.5rem, 1.5vw) 0 min(2.5rem, 1.5vw);
   width: min(82.5rem, calc(100% - 3vw));
+}
+
+@media screen and (max-width: 768px) {
+  .html,
+  .body {
+    height: calc(100% + 4rem);
+  }
 }

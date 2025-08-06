@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/general-media.css" />
     <script defer src="/js/header.js"></script>
+    <script defer src="/js/sorting.js"></script>
     <script defer src="/js/script.js"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
@@ -148,7 +149,82 @@
         alt="plus"
       />
     </header>
-    <main class="main desktop-width"></main>
+    <main class="main desktop-width">
+      <h2 class="main-heading">Popular Movies</h2>
+
+      <div class="main-content">
+        <form class="sorting">
+          <div id="sort" class="sort-filter sort">
+            <button
+              onclick="openClose('pointer-sort', 'sort-content', 'openSort')"
+              type="button"
+              class="open-close-button"
+              id="sort-button"
+            >
+              Sort
+              <span id="pointer-sort" class="pointer"></span>
+            </button>
+            <div class="sort-content" id="sort-content">
+              <h3 class="form-heading">Sort Results By</h3>
+              <button
+                onclick="openClose2('pointer-sort-2', 'select-sorting', 'colorChange', 'options', 'displayOptions' )"
+                type="button"
+                class="select-option"
+                id="select-sorting"
+              >
+                <span>Popularity Descending</span>
+                <span id="pointer-sort-2" class="pointer"></span>
+              </button>
+              <div class="options" id="options">
+                <button class="sort-option" type="button">
+                  Popularity Descending
+                </button>
+                <button class="sort-option" type="button">
+                  Popularity Ascending
+                </button>
+                <button class="sort-option" type="button">
+                  Rating Descending
+                </button>
+                <button class="sort-option" type="button">
+                  Rating Ascending
+                </button>
+                <button class="sort-option" type="button">
+                  Release Date Descending
+                </button>
+                <button class="sort-option" type="button">
+                  Release Date Ascending
+                </button>
+                <button class="sort-option" type="button">Title (A-Z)</button>
+                <button class="sort-option" type="button">Title (Z-A)</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="filter" class="sort-filter filter">
+            <button
+              onclick="openClose('pointer-filter', 'filter', 'openForm')"
+              type="button"
+              class="open-close-button"
+              id="filter-button"
+            >
+              Filters
+              <span id="pointer-filter" class="pointer"></span>
+            </button>
+          </div>
+
+          <button type="submit" class="form-button search-button-1">
+            Search
+          </button>
+        </form>
+
+        <div class="movies-container">
+          <div class="movies"></div>
+          <button type="button" class="form-button load-button">
+            Load More
+          </button>
+        </div>
+      </div>
+    </main>
     <footer class="footer">
       <nav class="footer-content">
         <div class="footer-join-logo">
