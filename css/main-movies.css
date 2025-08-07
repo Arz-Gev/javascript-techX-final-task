@@ -15,10 +15,102 @@
 /* ----------------------------------------------- MOVIE CARD */
 
 .movie-card {
-  border: 1px solid black;
-  box-shadow: var(--standart-shadow);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--movie-card-shadow);
   border-radius: 0.5rem;
-  aspect-ratio: 179/369.5;
+  aspect-ratio: 179/351;
+  max-width: 15.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.movie-poster {
+  width: 100%;
+}
+/* ------------------------- MOVIE DATA */
+.movie-data {
+  padding: 14% 0.625rem 0.75rem 0.625rem;
+}
+
+.movie-name {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.movie-relese-date {
+  color: var(--relese-date-txt-color);
+  font-size: 1rem;
+}
+
+.movie-description {
+  display: none;
+}
+/* ------------------------ ELEMENTS POSITIOIN ABSOLUTE */
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.move-rating-circle-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  display: flex;
+  letter-spacing: 0.1rem;
+  font-size: 0.75rem;
+  bottom: 18.8%;
+  left: 7%;
+  width: 2.125rem;
+  height: 2.125rem;
+  background-color: var(--dark-blue-rating);
+}
+
+.circle-2 {
+  background: conic-gradient(
+    rgba(var(--percent-color-medium), 1) 20%,
+    20%,
+    rgba(var(--percent-color-medium), 0.3) 100%
+  );
+  width: 2rem;
+  height: 2rem;
+}
+
+.circle-3 {
+  background-color: var(--dark-blue-rating);
+  width: 1.7rem;
+  height: 1.7rem;
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.percent {
+  height: 55%;
+  display: flex;
+  align-items: start;
+  font-size: 0.4rem;
+  font-weight: 400;
+}
+
+.movie-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  display: flex;
+  letter-spacing: 0.1rem;
+  font-size: 0.75rem;
+  top: 3%;
+  right: 7.5%;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background-color: var(--transparant-gray);
 }
 
 /* -------------------------------------------- LOAD BUTTON */
@@ -48,7 +140,41 @@
   }
 
   .movie-card {
-    border: 1px solid black;
-    aspect-ratio: 653/141;
+    flex-direction: row;
+    height: 8.8125rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .movie-poster {
+    width: auto;
+    height: 100%;
+  }
+
+  .movie-data {
+    padding: 1.25rem 1.25rem;
+    width: 100%;
+  }
+
+  .movie-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    font-size: 0.9rem;
+    margin-top: 1.25rem;
+    line-height: 1.1rem;
+    height: 2.25rem;
+  }
+
+  .circle {
+    display: none;
+  }
+
+  .movie-options {
+    display: none;
   }
 }
