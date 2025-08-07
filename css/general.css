@@ -27,6 +27,7 @@
   --percent-color-medium: 255, 255, 0;
   --percent-color-high: 0, 128, 0;
   --percent-color-low: 255, 0, 0;
+  --poster-background-color: rgb(219 219 219);
 
   --exist: 1px solid black;
 }

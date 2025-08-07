@@ -19,7 +19,7 @@
   flex-direction: column;
   box-shadow: var(--movie-card-shadow);
   border-radius: 0.5rem;
-  aspect-ratio: 179/351;
+  aspect-ratio: 180/371;
   max-width: 15.5rem;
   overflow: hidden;
   position: relative;
@@ -27,6 +27,7 @@
 
 .movie-poster {
   width: 100%;
+  background-color: var(--poster-background-color);
 }
 /* ------------------------- MOVIE DATA */
 .movie-data {
