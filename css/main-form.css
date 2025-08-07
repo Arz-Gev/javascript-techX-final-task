@@ -85,7 +85,7 @@
   background-color: var(--background-grey);
 }
 
-.search-button-1 {
+.search-button {
   height: 2.75rem;
   width: 100%;
   border-radius: 1.25rem;
@@ -93,6 +93,34 @@
   font-weight: 600;
   justify-content: center;
   margin-top: 1rem;
+}
+
+.search-button:disabled {
+  background-color: var(--background-grey);
+  color: rgba(0, 0, 0, 0.5);
+  cursor: auto;
+}
+
+/* Search all countries?
+ 
+Theatrical (limited)
+ 
+Theatrical
+ 
+Premiere
+ 
+Digital
+ 
+Physical
+ 
+TV */
+
+.out-of-view {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 0;
 }
 
 .open-close-button {
@@ -128,12 +156,26 @@
   position: relative;
 }
 
+.filter-content {
+  display: none;
+  flex-direction: column;
+  position: relative;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border-grey);
+  padding: 0.875rem 1rem;
+  position: relative;
+}
+
 .sort-content.openSort {
   display: flex;
 }
 
-.filter.openForm {
-  height: 400px;
+.filter-content.openForm {
+  display: flex;
 }
 
 /* -----------------------------------------------------------POINTER */
@@ -149,4 +191,32 @@
 
 .pointer.open {
   transform: rotate(45deg);
+}
+
+/* -----------------------------------------------------------------FILTERS */
+
+.hidden-checkbox {
+  display: block;
+}
+
+.all-releases:checked ~ .hidden-checkbox {
+  display: none;
+}
+
+.all-releases {
+  width: fit-content;
+}
+
+.checkbox-label {
+  position: absolute;
+  top: 17%;
+  left: 2rem;
+}
+
+.all-releases:checked ~ .checkbox-label {
+  color: red;
+}
+
+#releases {
+  margin: 0.5rem 0;
 }

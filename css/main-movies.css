@@ -19,10 +19,11 @@
   flex-direction: column;
   box-shadow: var(--movie-card-shadow);
   border-radius: 0.5rem;
-  aspect-ratio: 180/371;
+  aspect-ratio: 180/380;
   max-width: 15.5rem;
   overflow: hidden;
   position: relative;
+  border: 1px solid var(--border-grey);
 }
 
 .movie-poster {
@@ -30,14 +31,22 @@
   background-color: var(--poster-background-color);
   aspect-ratio: 180/271;
 }
+
 /* ------------------------- MOVIE DATA */
+
 .movie-data {
-  padding: 14% 0.625rem 0.75rem 0.625rem;
+  padding: 10% 0.625rem 0.75rem 0.625rem;
 }
 
 .movie-name {
   font-size: 1rem;
   font-weight: 700;
+  white-space: normal;
+  cursor: pointer;
+}
+
+.movie-name:hover {
+  color: rgba(var(--blue-hover-color));
 }
 
 .movie-relese-date {
@@ -48,6 +57,7 @@
 .movie-description {
   display: none;
 }
+
 /* ------------------------ ELEMENTS POSITIOIN ABSOLUTE */
 
 .circle {
@@ -65,7 +75,7 @@
   display: flex;
   letter-spacing: 0.1rem;
   font-size: 0.75rem;
-  bottom: 22.5%;
+  bottom: 24.5%;
   left: 7%;
   width: 38px;
   height: 38px;
@@ -115,9 +125,16 @@
   border-radius: 50%;
   padding: 0 0 0.1rem 0.1rem;
   background-color: var(--transparant-gray);
+  cursor: pointer;
+}
+
+.movie-options:hover {
+  background-color: rgba(var(--blue-hover-color));
+  color: transparent;
 }
 
 /* -------------------------------------------- LOAD BUTTON */
+
 .load-button {
   margin-top: 2rem;
   width: 100%;

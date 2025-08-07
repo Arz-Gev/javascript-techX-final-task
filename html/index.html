@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/css/general-media.css" />
 
     <script defer src="/js/header.js"></script>
-    <script defer src="/js/sorting.js"></script>
+    <script defer src="/js/form.js"></script>
     <script defer src="/js/script.js"></script>
 
     <style>
@@ -182,33 +182,33 @@
                 <span id="pointer-sort-2" class="pointer"></span>
               </button>
               <div class="options" id="options">
-                <button class="sort-option" type="button">
+                <span class="sort-option" type="button">
                   Popularity Descending
-                </button>
-                <button class="sort-option" type="button">
+                </span>
+                <span class="sort-option" type="button">
                   Popularity Ascending
-                </button>
-                <button class="sort-option" type="button">
+                </span>
+                <span class="sort-option" type="button">
                   Rating Descending
-                </button>
-                <button class="sort-option" type="button">
+                </span>
+                <span class="sort-option" type="button">
                   Rating Ascending
-                </button>
-                <button class="sort-option" type="button">
+                </span>
+                <span class="sort-option" type="button">
                   Release Date Descending
-                </button>
-                <button class="sort-option" type="button">
+                </span>
+                <span class="sort-option" type="button">
                   Release Date Ascending
-                </button>
-                <button class="sort-option" type="button">Title (A-Z)</button>
-                <button class="sort-option" type="button">Title (Z-A)</button>
+                </span>
+                <span class="sort-option" type="button">Title (A-Z)</span>
+                <span class="sort-option" type="button">Title (Z-A)</span>
               </div>
             </div>
           </div>
 
           <div id="filter" class="sort-filter filter">
             <button
-              onclick="openClose('pointer-filter', 'filter', 'openForm')"
+              onclick="openClose('pointer-filter', 'filterContent', 'openForm')"
               type="button"
               class="open-close-button"
               id="filter-button"
@@ -216,11 +216,112 @@
               Filters
               <span id="pointer-filter" class="pointer"></span>
             </button>
+            <div class="filter-content" id="filterContent">
+              <div class="filter-section">
+                <h3 class="form-heading">Show Me</h3>
+                <label>
+                  <input type="radio" checked />
+                  Everything
+                </label>
+                <label>
+                  <input type="radio" disabled />
+                  Movies I Haven't Seen
+                </label>
+                <label>
+                  <input type="radio" disabled />
+                  Movies I Have Seen
+                </label>
+              </div>
+              <div class="filter-section">
+                <h3 class="form-heading">Release Dates</h3>
+
+                <label for="releases" class="checkbox-label"
+                  >Search all releases?</label
+                >
+                <input
+                  class="all-releases"
+                  type="checkbox"
+                  id="releases"
+                  name="releases"
+                  value="true"
+                  checked
+                />
+                <label for="releases" class="hidden-checkbox">
+                  <input
+                    type="checkbox"
+                    id="releases"
+                    name="releases"
+                    value="true"
+                  />
+                  Search all releases?</label
+                >
+                <label for="releases" class="hidden-checkbox">
+                  <input
+                    type="checkbox"
+                    id="releases"
+                    name="releases"
+                    value="true"
+                  />
+                  Search all releases?</label
+                >
+                <label for="releases" class="hidden-checkbox">
+                  <input
+                    type="checkbox"
+                    id="releases"
+                    name="releases"
+                    value="true"
+                  />
+                  Search all releases?</label
+                >
+                <label for="releases" class="hidden-checkbox">
+                  <input
+                    type="checkbox"
+                    id="releases"
+                    name="releases"
+                    value="true"
+                  />
+                  Search all releases?</label
+                >
+                <label for="releases" class="hidden-checkbox">
+                  <input
+                    type="checkbox"
+                    id="releases"
+                    name="releases"
+                    value="true"
+                  />
+                  Search all releases?</label
+                >
+                <label for="releases" class="hidden-checkbox">
+                  <input
+                    type="checkbox"
+                    id="releases"
+                    name="releases"
+                    value="true"
+                  />
+                  Search all releases?</label
+                >
+                <label for="releases" class="hidden-checkbox">
+                  <input
+                    type="checkbox"
+                    id="releases"
+                    name="releases"
+                    value="true"
+                  />
+                  Search all releases?</label
+                >
+              </div>
+            </div>
           </div>
 
-          <button type="submit" class="form-button search-button-1">
-            Search
-          </button>
+          <span id="search-position">
+            <button
+              type="submit"
+              class="form-button search-button"
+              id="searchButton"
+            >
+              Search
+            </button>
+          </span>
         </form>
 
         <div class="movies-container">

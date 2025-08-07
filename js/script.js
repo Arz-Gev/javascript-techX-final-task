@@ -1,17 +1,12 @@
 const moviesContainer = document.getElementById("moviesContainer");
 const movieCardTemplate = document.getElementById("movieCard");
 const loadMore = document.getElementById("load-more");
+
 let loadPressed = false;
 let movies = {};
 let currentPage = 1;
 
-const options = {
-  root: null,
-  rootMargin: "0px 0px 300px 0px",
-  threshold: 1.0,
-};
-
-const observer = new IntersectionObserver(
+const observerLoadMore = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting && loadPressed) {
@@ -26,7 +21,7 @@ const observer = new IntersectionObserver(
   }
 );
 
-observer.observe(loadMore);
+observerLoadMore.observe(loadMore);
 
 loadMovies(1);
 
@@ -50,11 +45,14 @@ async function loadMovies(page = 1) {
 
   try {
     const response = await fetch(url, options);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const data = await response.json();
-    console.log(data);
 
     data.results.forEach((movie) => {
-      console.log(movie);
       createMovieCard(movie);
     });
   } catch (error) {
@@ -66,6 +64,8 @@ function createMovieCard(movie) {
   const cardClone = movieCardTemplate.cloneNode(true);
 
   const movieRating = Math.round(movie.vote_average * 10);
+  const movieRatingCategory =
+    movieRating < 45 ? "low" : movieRating > 75 ? "high" : "medium";
 
   cardClone.querySelector("#movieName").textContent = movie.title;
 
@@ -85,9 +85,12 @@ function createMovieCard(movie) {
     movieRating;
 
   cardClone.querySelector("#percentVisual").style.background = `conic-gradient(
-  rgba(var(--percent-color-medium), 1) ${movieRating}%,${movieRating}%,
-  rgba(var(--percent-color-medium), 0.3) 100%)`;
+  rgba(var(--percent-color-${movieRatingCategory}), 1) ${movieRating}%,${movieRating}%,
+  rgba(var(--percent-color-${movieRatingCategory}), 0.3) 100%)`;
+
+  cardClone.querySelector("#movieDescription").textContent = movie.overview;
 
   moviesContainer.appendChild(cardClone);
   cardClone.style.display = "flex";
+  cardClone.id = "";
 }
