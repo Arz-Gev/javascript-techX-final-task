@@ -65,6 +65,8 @@ async function loadMovies(page = 1) {
 function createMovieCard(movie) {
   const cardClone = movieCardTemplate.cloneNode(true);
 
+  const movieRating = Math.round(movie.vote_average * 10);
+
   cardClone.querySelector("#movieName").textContent = movie.title;
 
   cardClone.querySelector("#movieReleseDate").textContent = new Date(
@@ -79,9 +81,12 @@ function createMovieCard(movie) {
     "#moviePoster"
   ).src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
 
-  cardClone.querySelector("#percentValue").textContent = Math.round(
-    movie.vote_average * 10
-  );
+  cardClone.querySelector("#percentValue").childNodes[0].nodeValue =
+    movieRating;
+
+  cardClone.querySelector("#percentVisual").style.background = `conic-gradient(
+  rgba(var(--percent-color-medium), 1) ${movieRating}%,${movieRating}%,
+  rgba(var(--percent-color-medium), 0.3) 100%)`;
 
   moviesContainer.appendChild(cardClone);
   cardClone.style.display = "flex";

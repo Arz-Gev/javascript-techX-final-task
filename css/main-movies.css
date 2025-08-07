@@ -28,6 +28,7 @@
 .movie-poster {
   width: 100%;
   background-color: var(--poster-background-color);
+  aspect-ratio: 180/271;
 }
 /* ------------------------- MOVIE DATA */
 .movie-data {
@@ -64,10 +65,10 @@
   display: flex;
   letter-spacing: 0.1rem;
   font-size: 0.75rem;
-  bottom: 18.8%;
+  bottom: 22.5%;
   left: 7%;
-  width: 2.125rem;
-  height: 2.125rem;
+  width: 38px;
+  height: 38px;
   background-color: var(--dark-blue-rating);
 }
 
@@ -77,21 +78,23 @@
     20%,
     rgba(var(--percent-color-medium), 0.3) 100%
   );
-  width: 2rem;
-  height: 2rem;
+  width: 2.15rem;
+  height: 2.15rem;
 }
 
 .circle-3 {
   background-color: var(--dark-blue-rating);
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 1.9rem;
+  height: 1.9rem;
   color: var(--white);
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 800;
+  letter-spacing: 0;
+  padding-left: 5%;
 }
 
 .percent {
-  height: 55%;
+  height: 50%;
   display: flex;
   align-items: start;
   font-size: 0.4rem;
@@ -103,7 +106,6 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  display: flex;
   letter-spacing: 0.1rem;
   font-size: 0.75rem;
   top: 3%;
@@ -111,6 +113,7 @@
   width: 1.1rem;
   height: 1.1rem;
   border-radius: 50%;
+  padding: 0 0 0.1rem 0.1rem;
   background-color: var(--transparant-gray);
 }
 
