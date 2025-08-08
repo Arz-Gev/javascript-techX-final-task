@@ -1,6 +1,9 @@
 const sortFilterForm = document.getElementById("filterSorting");
 
-let searchButton = document.getElementById("searchButton");
+const searchButton = document.getElementById("searchButton");
+
+const resetButton = document.getElementById("resetButton");
+
 let searchButtonDiabaled = false;
 
 const searchButtonPosition = document.getElementById("search-position");
@@ -125,7 +128,7 @@ sortOptions.addEventListener("click", function (e) {
   }
 });
 
-searchButton.addEventListener("click", () => {
+searchButton.addEventListener("click", (e) => {
   const container = document.getElementById("moviesContainer");
   const childrenToDelete = container.querySelectorAll(":not(#movieCard)");
   childrenToDelete.forEach((child) => child.remove());
