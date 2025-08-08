@@ -1,6 +1,8 @@
 formData = {
   sortBy: "popularity.desc",
   genres: "",
+  primary_release_date_gte: "",
+  primary_release_date_lte: "",
 };
 
 const moviesContainer = document.getElementById("moviesContainer");
@@ -46,9 +48,15 @@ loadMore.addEventListener("click", () => {
 });
 
 async function loadMovies(page = 1) {
-  let url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=${
-    formData.sortBy
-  }${formData.genres ? "&with_genres=" : ""}${formData.genres}`;
+  let url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}${
+    formData.primary_release_date_gte ? "&primary_release_date.gte=" : ""
+  }${formData.primary_release_date_gte}${
+    formData.primary_release_date_lte ? "&primary_release_date.lte=" : ""
+  }${formData.primary_release_date_lte}&sort_by=${formData.sortBy}${
+    formData.genres ? "&with_genres=" : ""
+  }${formData.genres}`;
+
+  //&primary_release_date.gte=2005-01-01&primary_release_date.lte=2005-01-01
 
   try {
     const response = await fetch(url, options);

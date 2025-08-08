@@ -130,10 +130,10 @@ searchButton.addEventListener("click", () => {
   const childrenToDelete = container.querySelectorAll(":not(#movieCard)");
   childrenToDelete.forEach((child) => child.remove());
 
-  const SFData = new FormData(sortFilterForm);
-  const data = Object.fromEntries(SFData);
-
   formData.genres = "";
+
+  const formDataInitial = new FormData(sortFilterForm);
+  const data = Object.fromEntries(formDataInitial);
 
   for (let i = 0; i < 19; i++) {
     if (formData.genres === "") {
@@ -145,7 +145,12 @@ searchButton.addEventListener("click", () => {
     }
   }
 
-  console.log(formData.genres);
+  if (data["date-from"] !== "") {
+    formData.primary_release_date_gte = data["date-from"];
+  }
+  if (data["date-to"] !== "") {
+    formData.primary_release_date_lte = data["date-to"];
+  }
 
   currentPage = 1;
   loadMovies(currentPage);
