@@ -151,6 +151,10 @@ searchButton.addEventListener("click", () => {
   if (data["date-to"] !== "") {
     formData.primary_release_date_lte = data["date-to"];
   }
+  if (data["language"] !== "") {
+    formData.with_original_language = data["language"];
+  }
+  console.log(data);
 
   currentPage = 1;
   loadMovies(currentPage);
