@@ -8,8 +8,8 @@
 /* ------------------------------------------------------- HEADING */
 
 .main-heading {
-  font-size: 1.6rem;
   color: var(--black);
+  font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
@@ -32,13 +32,13 @@
   }
 
   .sorting {
-    min-width: 16.25rem;
     max-width: none;
+    min-width: 16.25rem;
   }
 
   .movies-container {
+    align-items: center;
     margin-left: 0;
     margin-top: 2rem;
-    align-items: center;
   }
 }

@@ -171,3 +171,4 @@ searchButton.addEventListener("click", (e) => {
   currentPage = 1;
   loadMovies(currentPage);
 });
+

@@ -1,17 +1,17 @@
 .footer {
+  align-items: center;
   background-color: var(--header-back-color);
   display: flex;
-  align-items: center;
   justify-content: center;
+  margin-top: auto;
   min-height: 20.375rem;
   width: 100%;
-  margin-top: auto;
 }
 
 .footer-content {
+  align-items: start;
   display: flex;
   justify-content: center;
-  align-items: start;
 }
 
 .footer-logo {
@@ -23,30 +23,30 @@
 .footer-join-logo {
   display: flex;
   flex-direction: column;
+  height: 8.625rem;
   justify-content: end;
   margin: 0 calc(0.5rem + 2.5vw);
   position: relative;
-  height: 8.625rem;
 }
 
 .join-link {
-  text-decoration: none;
-  color: var(--footer-join-link-color);
   background-color: var(--white);
   border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
+  color: var(--footer-join-link-color);
   font-size: 1.17rem;
   font-weight: 700;
+  padding: 0.5rem 1rem;
   text-align: center;
+  text-decoration: none;
 }
 
 .footer-links {
-  display: flex;
-  justify-content: start;
-  flex-direction: column;
-  margin-right: calc(1rem + 1vw);
   color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
   justify-content: center;
+  margin-right: calc(1rem + 1vw);
 }
 
 .footer-heading {
@@ -54,28 +54,28 @@
 }
 
 .footer-link {
-  text-decoration: none;
   color: var(--white);
+  text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
   .footer {
-    padding: 2.5rem 0;
-    min-height: 44.8rem;
     justify-content: start;
+    min-height: 44.8rem;
+    padding: 2.5rem 0;
   }
 
   .footer-content {
     flex-direction: column;
-    margin-left: 1rem;
-    height: auto;
     gap: 2.25rem;
+    height: auto;
+    margin-left: 1rem;
   }
 
   .footer-join-logo {
-    position: initial;
-    margin: 0;
     height: auto;
+    margin: 0;
+    position: initial;
   }
 
   .footer-logo {
