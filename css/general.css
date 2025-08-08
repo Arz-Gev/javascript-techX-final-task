@@ -29,6 +29,7 @@
   --percent-color-low: 255, 0, 0;
   --poster-background-color: rgb(219 219 219);
   --blue-hover-color: 1, 180, 228;
+  --dark-border-gray: rgb(158 158 158);
 
   --exist: 1px solid black;
 }

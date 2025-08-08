@@ -1,6 +1,20 @@
+formData = {
+  sortBy: "popularity.desc",
+  genres: "",
+};
+
 const moviesContainer = document.getElementById("moviesContainer");
 const movieCardTemplate = document.getElementById("movieCard");
 const loadMore = document.getElementById("load-more");
+
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NWYyMzdlNTRlMDRmZDA1MzA1MzFiNTlmZjhiMGU5NyIsIm5iZiI6MTc1NDQ3MDY4MC45ODcsInN1YiI6IjY4OTMxOTE4ZDEyMDM4NmY4OTExZTU4MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.r2FrPJi5tejPIImPSnJ-y4elVjTulWOID_FTAdlSdNs",
+  },
+};
 
 let loadPressed = false;
 let movies = {};
@@ -32,16 +46,9 @@ loadMore.addEventListener("click", () => {
 });
 
 async function loadMovies(page = 1) {
-  const url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`;
-
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NWYyMzdlNTRlMDRmZDA1MzA1MzFiNTlmZjhiMGU5NyIsIm5iZiI6MTc1NDQ3MDY4MC45ODcsInN1YiI6IjY4OTMxOTE4ZDEyMDM4NmY4OTExZTU4MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.r2FrPJi5tejPIImPSnJ-y4elVjTulWOID_FTAdlSdNs",
-    },
-  };
+  let url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=${
+    formData.sortBy
+  }${formData.genres ? "&with_genres=" : ""}${formData.genres}`;
 
   try {
     const response = await fetch(url, options);
@@ -77,9 +84,9 @@ function createMovieCard(movie) {
     day: "numeric",
   });
 
-  cardClone.querySelector(
-    "#moviePoster"
-  ).src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+  cardClone.querySelector("#moviePoster").src = movie.poster_path
+    ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+    : "/sources/main/default-poster.svg";
 
   cardClone.querySelector("#percentValue").childNodes[0].nodeValue =
     movieRating;

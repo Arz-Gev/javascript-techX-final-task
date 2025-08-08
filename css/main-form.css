@@ -2,6 +2,7 @@
 
 .sorting {
   min-width: 16.25rem;
+  max-width: 16.25rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -101,20 +102,6 @@
   cursor: auto;
 }
 
-/* Search all countries?
- 
-Theatrical (limited)
- 
-Theatrical
- 
-Premiere
- 
-Digital
- 
-Physical
- 
-TV */
-
 .out-of-view {
   position: fixed;
   bottom: 0;
@@ -167,7 +154,6 @@ TV */
   flex-direction: column;
   border-top: 1px solid var(--border-grey);
   padding: 0.875rem 1rem;
-  position: relative;
 }
 
 .sort-content.openSort {
@@ -195,28 +181,69 @@ TV */
 
 /* -----------------------------------------------------------------FILTERS */
 
-.hidden-checkbox {
-  display: block;
-}
-
-.all-releases:checked ~ .hidden-checkbox {
+.hidden-checkboxes {
   display: none;
 }
 
-.all-releases {
-  width: fit-content;
+.show-checkboxes {
+  display: flex;
+  flex-direction: column;
 }
 
 .checkbox-label {
-  position: absolute;
-  top: 17%;
-  left: 2rem;
+  margin: 0.1rem 0;
 }
 
-.all-releases:checked ~ .checkbox-label {
-  color: red;
+.checkbox-label-countries {
+  margin-bottom: 1.25rem;
 }
 
-#releases {
+.date-input {
+  height: 2rem;
+}
+
+.date-label {
+  display: flex;
+  justify-content: space-between;
   margin: 0.5rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .date-label {
+    width: 60%;
+    justify-content: space-between;
+  }
+}
+
+/* ----------------------------  GENRES*/
+.genres-container {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Genres-checkbox {
+  display: none;
+}
+
+.Genres-label {
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.875rem;
+  border: solid 1px var(--dark-border-gray);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 0.4rem 0.5rem 0 0;
+}
+
+.Genres-label:hover {
+  border-color: var(--light-blue);
+  background-color: var(--light-blue);
+  color: var(--white);
+}
+
+.checked {
+  border-color: var(--light-blue);
+  background-color: var(--light-blue);
+  color: var(--white);
 }

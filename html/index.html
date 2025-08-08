@@ -20,15 +20,37 @@
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/general-media.css" />
 
+    <script defer src="/js/script.js"></script>
     <script defer src="/js/header.js"></script>
     <script defer src="/js/form.js"></script>
-    <script defer src="/js/script.js"></script>
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
     </style>
   </head>
   <body class="body">
+    <div class="movie-card" id="movieCard" style="display: none">
+      <img
+        id="moviePoster"
+        class="movie-poster"
+        src="/sources/main/movie-poster.png"
+        alt="movie-poster"
+      />
+      <div class="movie-data" id="movieData">
+        <h3 class="movie-name" id="movieName"></h3>
+        <p class="movie-relese-date" id="movieReleseDate"></p>
+        <p class="movie-description" id="movieDescription"></p>
+      </div>
+      <div class="move-rating-circle-1 circle">
+        <div class="circle-2 circle" id="percentVisual">
+          <div class="circle-3 circle" id="percentValue">
+            20
+            <span class="percent">%</span>
+          </div>
+        </div>
+      </div>
+      <div class="movie-options">•••</div>
+    </div>
     <header class="header">
       <button onclick="showMenu()" type="button" class="menu-button">
         <img
@@ -159,7 +181,7 @@
       <h2 class="main-heading">Popular Movies</h2>
 
       <div class="main-content">
-        <form class="sorting">
+        <form class="sorting" id="filterSorting">
           <div id="sort" class="sort-filter sort">
             <button
               onclick="openClose('pointer-sort', 'sort-content', 'openSort')"
@@ -178,30 +200,31 @@
                 class="select-option"
                 id="select-sorting"
               >
-                <span>Popularity Descending</span>
+                <span id="selectedSortOption">Popularity Descending</span>
                 <span id="pointer-sort-2" class="pointer"></span>
               </button>
+
               <div class="options" id="options">
-                <span class="sort-option" type="button">
+                <span class="sort-option" id="popularity.desc">
                   Popularity Descending
                 </span>
-                <span class="sort-option" type="button">
+                <span class="sort-option" id="popularity.asc">
                   Popularity Ascending
                 </span>
-                <span class="sort-option" type="button">
+                <span class="sort-option" id="vote_average.desc">
                   Rating Descending
                 </span>
-                <span class="sort-option" type="button">
+                <span class="sort-option" id="vote_average.asc">
                   Rating Ascending
                 </span>
-                <span class="sort-option" type="button">
+                <span class="sort-option" id="primary_release_date.desc">
                   Release Date Descending
                 </span>
-                <span class="sort-option" type="button">
+                <span class="sort-option" id="primary_release_date.asc">
                   Release Date Ascending
                 </span>
-                <span class="sort-option" type="button">Title (A-Z)</span>
-                <span class="sort-option" type="button">Title (Z-A)</span>
+                <span class="sort-option" id="title.asc">Title (A-Z)</span>
+                <span class="sort-option" id="title.desc">Title (Z-A)</span>
               </div>
             </div>
           </div>
@@ -235,87 +258,124 @@
               <div class="filter-section">
                 <h3 class="form-heading">Release Dates</h3>
 
-                <label for="releases" class="checkbox-label"
-                  >Search all releases?</label
-                >
-                <input
-                  class="all-releases"
-                  type="checkbox"
-                  id="releases"
-                  name="releases"
-                  value="true"
-                  checked
-                />
-                <label for="releases" class="hidden-checkbox">
+                <label for="releases" class="checkbox-label">
                   <input
                     type="checkbox"
                     id="releases"
-                    name="releases"
+                    name="search-all-releases"
                     value="true"
+                    checked
                   />
-                  Search all releases?</label
-                >
-                <label for="releases" class="hidden-checkbox">
+                  Search all releases?
+                </label>
+                <div id="hiddenCheckboxes" class="hidden-checkboxes">
+                  <label
+                    for="search-all-countries"
+                    class="checkbox-label checkbox-label-countries"
+                  >
+                    <input
+                      type="checkbox"
+                      id="search-all-countries"
+                      name="search-all-countries"
+                      value="true"
+                      checked
+                    />
+                    Search all countries?</label
+                  >
+                  <label for="Theatrical-limited" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="Theatrical-limited"
+                      name="Theatrical-limited"
+                      value="true"
+                      checked
+                    />
+                    Theatrical (limited)</label
+                  >
+                  <label for="theatrical" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="theatrical"
+                      name="releases"
+                      value="true"
+                      checked
+                    />
+                    Theatrical
+                  </label>
+                  <label for="premiere" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="premiere"
+                      name="premiere"
+                      value="true"
+                      checked
+                    />
+                    Premiere
+                  </label>
+                  <label for="digital" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="digital"
+                      name="digital"
+                      value="true"
+                      checked
+                    />
+                    Digital
+                  </label>
+                  <label for="physical" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="physical"
+                      name="physical"
+                      value="true"
+                      checked
+                    />
+                    Physical
+                  </label>
+                  <label for="tv" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="tv"
+                      name="tv"
+                      value="true"
+                      checked
+                    />
+                    TV
+                  </label>
+                </div>
+
+                <label for="date-from" class="date-label"
+                  >from
                   <input
-                    type="checkbox"
-                    id="releases"
-                    name="releases"
-                    value="true"
-                  />
-                  Search all releases?</label
-                >
-                <label for="releases" class="hidden-checkbox">
+                    class="date-input"
+                    type="date"
+                    id="date-from"
+                    name="date-from"
+                    min="2000-01-01"
+                    max="2026-01-01"
+                /></label>
+
+                <label for="date-to" class="date-label"
+                  >to
                   <input
-                    type="checkbox"
-                    id="releases"
-                    name="releases"
-                    value="true"
-                  />
-                  Search all releases?</label
-                >
-                <label for="releases" class="hidden-checkbox">
-                  <input
-                    type="checkbox"
-                    id="releases"
-                    name="releases"
-                    value="true"
-                  />
-                  Search all releases?</label
-                >
-                <label for="releases" class="hidden-checkbox">
-                  <input
-                    type="checkbox"
-                    id="releases"
-                    name="releases"
-                    value="true"
-                  />
-                  Search all releases?</label
-                >
-                <label for="releases" class="hidden-checkbox">
-                  <input
-                    type="checkbox"
-                    id="releases"
-                    name="releases"
-                    value="true"
-                  />
-                  Search all releases?</label
-                >
-                <label for="releases" class="hidden-checkbox">
-                  <input
-                    type="checkbox"
-                    id="releases"
-                    name="releases"
-                    value="true"
-                  />
-                  Search all releases?</label
-                >
+                    class="date-input"
+                    type="date"
+                    id="date-to"
+                    name="date-to"
+                    min="2000-01-01"
+                    max="2026-01-01"
+                /></label>
+              </div>
+              <div class="filter-section">
+                <h3 class="form-heading">Genres</h3>
+                <div class="genres-container" id="genresContainer"></div>
               </div>
             </div>
           </div>
 
           <span id="search-position">
             <button
-              type="submit"
+              type="button"
               class="form-button search-button"
               id="searchButton"
             >
@@ -325,37 +385,7 @@
         </form>
 
         <div class="movies-container">
-          <div class="movies" id="moviesContainer">
-            <div class="movie-card" id="movieCard" style="display: none">
-              <img
-                id="moviePoster"
-                class="movie-poster"
-                src="/sources/main/movie-poster.png"
-                alt="movie-poster"
-              />
-              <div class="movie-data" id="movieData">
-                <h3 class="movie-name" id="movieName">War of the Worlds</h3>
-                <p class="movie-relese-date" id="movieReleseDate">
-                  Jul 29, 2025
-                </p>
-                <p class="movie-description" id="movieDescription">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptatibus, hic iure. Ipsam fuga quisquam iusto cumque
-                  maxime quos veritatis aliquam alias sed in facere, expedita
-                  quaerat deleniti sapiente? Rem, non!
-                </p>
-              </div>
-              <div class="move-rating-circle-1 circle">
-                <div class="circle-2 circle" id="percentVisual">
-                  <div class="circle-3 circle" id="percentValue">
-                    20
-                    <span class="percent">%</span>
-                  </div>
-                </div>
-              </div>
-              <div class="movie-options">•••</div>
-            </div>
-          </div>
+          <div class="movies" id="moviesContainer"></div>
           <button type="button" class="form-button load-button" id="load-more">
             Load More
           </button>
