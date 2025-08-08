@@ -380,6 +380,90 @@
                   <option value="hy">Armenian</option>
                 </select>
               </div>
+              <div class="filter-section">
+                <h3 class="form-heading">User Score</h3>
+                <label for="vote_average_gte">from</label>
+                <input
+                  type="range"
+                  id="vote_average_gte"
+                  name="vote_average_gte"
+                  min="0"
+                  max="10"
+                  value="0"
+                  step="1"
+                />
+                <div class="usre-scores">
+                  <span>0</span>
+                  <span>5</span>
+                  <span>10</span>
+                </div>
+                <label for="vote_average_lte">to</label>
+                <input
+                  type="range"
+                  id="vote_average_lte"
+                  name="vote_average_lte"
+                  min="0"
+                  max="10"
+                  value="10"
+                  step="1"
+                />
+                <div class="usre-scores">
+                  <span>0</span>
+                  <span>5</span>
+                  <span>10</span>
+                </div>
+              </div>
+              <div class="filter-section">
+                <h3 class="form-heading">Minimum User Votes</h3>
+                <input
+                  value="0"
+                  type="range"
+                  id="userVotes"
+                  name="vote_count_gte"
+                  min="0"
+                  max="500"
+                  step="50"
+                />
+                <div class="usre-scores">
+                  <span>0</span>
+                  <span>250</span>
+                  <span>500</span>
+                </div>
+              </div>
+              <div class="filter-section">
+                <h3 class="form-heading">Runtime</h3>
+                <label for="with_runtime_gte">from</label>
+                <input
+                  type="range"
+                  id="with_runtime_gte"
+                  name="with_runtime_gte"
+                  min="0"
+                  max="400"
+                  value="0"
+                  step="10"
+                />
+                <div class="usre-scores">
+                  <span>0</span>
+                  <span>200</span>
+                  <span>400</span>
+                </div>
+
+                <label for="with_runtime_lte">to</label>
+                <input
+                  type="range"
+                  id="with_runtime_lte"
+                  name="with_runtime_lte"
+                  min="0"
+                  max="400"
+                  value="400"
+                  step="10"
+                />
+                <div class="usre-scores">
+                  <span>0</span>
+                  <span>200</span>
+                  <span>400</span>
+                </div>
+              </div>
             </div>
           </div>
 

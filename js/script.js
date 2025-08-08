@@ -4,6 +4,11 @@ formData = {
   primary_release_date_gte: "",
   primary_release_date_lte: "",
   with_original_language: "",
+  vote_count_gte: 0,
+  vote_average_gte: 0,
+  vote_average_lte: 10,
+  with_runtime_gte: 0,
+  with_runtime_lte: 400,
 };
 
 const moviesContainer = document.getElementById("moviesContainer");
@@ -57,11 +62,13 @@ async function loadMovies(page = 1) {
     formData.genres ? "&with_genres=" : ""
   }${formData.genres}${
     formData.with_original_language ? "&with_original_language=" : ""
-  }${formData.with_original_language}`;
-
-  //&with_original_language=ar
-
-  //&primary_release_date.gte=2005-01-01&primary_release_date.lte=2005-01-01
+  }${formData.with_original_language}&vote_count.gte=${
+    formData.vote_count_gte
+  }&vote_average.gte=${formData.vote_average_gte}&vote_average.lte=${
+    formData.vote_average_lte
+  }&with_runtime.gte=${formData.with_runtime_gte}&with_runtime.lte=${
+    formData.with_runtime_lte
+  }`;
 
   try {
     const response = await fetch(url, options);
@@ -71,6 +78,8 @@ async function loadMovies(page = 1) {
     }
 
     const data = await response.json();
+
+    console.log(data);
 
     data.results.forEach((movie) => {
       createMovieCard(movie);

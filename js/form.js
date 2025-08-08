@@ -154,6 +154,15 @@ searchButton.addEventListener("click", () => {
   if (data["language"] !== "") {
     formData.with_original_language = data["language"];
   }
+
+  formData.vote_count_gte = data["vote_count_gte"];
+
+  formData.vote_average_gte = data["vote_average_gte"];
+  formData.vote_average_lte = data["vote_average_lte"];
+
+  formData.with_runtime_gte = data["with_runtime_gte"];
+  formData.with_runtime_lte = data["with_runtime_lte"];
+
   console.log(data);
 
   currentPage = 1;
