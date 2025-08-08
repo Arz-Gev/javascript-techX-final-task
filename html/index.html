@@ -1,9 +1,542 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="html">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Popular Movies — The Movie Database (TMDB)</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/sources/header/title-icon.png"
+    />
+
+    <link rel="stylesheet" href="/css/general.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/main-form.css" />
+    <link rel="stylesheet" href="/css/main-movies.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/general-media.css" />
+
+    <script defer src="/js/script.js"></script>
+    <script defer src="/js/header.js"></script>
+    <script defer src="/js/form.js"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+    </style>
   </head>
-  <body></body>
+  <body class="body">
+    <div class="movie-card" id="movieCard" style="display: none">
+      <img
+        id="moviePoster"
+        class="movie-poster"
+        src="/sources/main/movie-poster.png"
+        alt="movie-poster"
+      />
+      <div class="movie-data" id="movieData">
+        <h3 class="movie-name" id="movieName"></h3>
+        <p class="movie-relese-date" id="movieReleseDate"></p>
+        <p class="movie-description" id="movieDescription"></p>
+      </div>
+      <div class="move-rating-circle-1 circle">
+        <div class="circle-2 circle" id="percentVisual">
+          <div class="circle-3 circle" id="percentValue">
+            20
+            <span class="percent">%</span>
+          </div>
+        </div>
+      </div>
+      <div class="movie-options">•••</div>
+    </div>
+    <header class="header">
+      <button onclick="showMenu()" type="button" class="menu-button">
+        <img
+          width="29px"
+          height="29px"
+          class="menue-icon"
+          src="/sources/header/mobile-menue-img.svg"
+          alt="plus"
+        />
+      </button>
+      <a class="logo-link" href="/html/index.html">
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcset="/sources/header/mobile-logo.svg"
+            width="55"
+            height="40"
+          />
+          <source
+            media="(min-width: 769px)"
+            srcset="/sources/header/logo.svg"
+            width="154"
+            height="20"
+          />
+          <img src="" alt="logo" class="logo" />
+        </picture>
+      </a>
+      <nav class="header-content desktop-width">
+        <div class="nav-left">
+          <div class="dropdown-menu">
+            <button
+              onclick="displayDropdown('dropdown-content-movies')"
+              type="button"
+              class="dropdown-button"
+              id="movies-button"
+            >
+              Movies
+            </button>
+            <div class="dropdown-content dropdown-content-movies">
+              <a class="dropdown-link" href="#">Popular</a>
+              <a class="dropdown-link" href="#">Now Playing</a>
+              <a class="dropdown-link" href="#">Upcoming</a>
+              <a class="dropdown-link" href="#">Top Rated</a>
+            </div>
+          </div>
+          <div class="dropdown-menu">
+            <button
+              onclick="displayDropdown('dropdown-content-tv-shows')"
+              type="button"
+              class="dropdown-button"
+              id="tv-shows-button"
+            >
+              TV Shows
+            </button>
+            <div class="dropdown-content dropdown-content-tv-shows">
+              <a class="dropdown-link" href="#">Popular</a>
+              <a class="dropdown-link" href="#">Airing Today</a>
+              <a class="dropdown-link" href="#">On TV</a>
+              <a class="dropdown-link" href="#">Top Rated</a>
+            </div>
+          </div>
+          <div class="dropdown-menu">
+            <button
+              onclick="displayDropdown('dropdown-content-poeple')"
+              type="button"
+              class="dropdown-button"
+              id="people-button"
+            >
+              People
+            </button>
+            <div class="dropdown-content dropdown-content-poeple">
+              <a class="dropdown-link" href="#">Popular People</a>
+            </div>
+          </div>
+          <div class="dropdown-menu">
+            <button
+              type="button"
+              class="dropdown-button mobile-none"
+              id="more-button"
+            >
+              More
+            </button>
+            <div class="dropdown-content header-more">
+              <a class="dropdown-link desktop-none" href="#"
+                >Contribution Bible</a
+              >
+              <a class="dropdown-link" href="#">Discussions</a>
+              <a class="dropdown-link" href="#">Leaderboard</a>
+              <a class="dropdown-link desktop-none" href="#">API</a>
+              <a class="dropdown-link" href="#">Support</a>
+              <a class="dropdown-link desktop-none" href="#">About</a>
+              <a class="dropdown-link mobile-none" href="#"
+                >API Documentation</a
+              >
+              <a class="dropdown-link mobile-none" href="#">API for Business</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-right">
+          <img
+            width="22.4px"
+            height="22.4px"
+            class="nav-item mobile-none"
+            src="/sources/header/plus.svg"
+            alt="plus"
+          />
+          <div class="nav-item en-box mobile-none">EN</div>
+          <div class="nav-item">Login</div>
+          <div class="nav-item mobile-none">Join TMDB</div>
+        </div>
+      </nav>
+      <img
+        width="29px"
+        height="29px"
+        class="person-icon"
+        src="/sources/header/person-icon.svg"
+        alt="plus"
+      />
+      <img
+        width="29px"
+        height="29px"
+        class="search-icon"
+        src="/sources/header/search-icon.svg"
+        alt="plus"
+      />
+    </header>
+    <main class="main desktop-width">
+      <h2 class="main-heading">Popular Movies</h2>
+
+      <div class="main-content">
+        <form class="sorting" id="filterSorting">
+          <div id="sort" class="sort-filter sort">
+            <button
+              onclick="openClose('pointer-sort', 'sort-content', 'openSort')"
+              type="button"
+              class="open-close-button"
+              id="sort-button"
+            >
+              Sort
+              <span id="pointer-sort" class="pointer"></span>
+            </button>
+            <div class="sort-content" id="sort-content">
+              <h3 class="form-heading">Sort Results By</h3>
+              <button
+                onclick="openClose2('pointer-sort-2', 'select-sorting', 'colorChange', 'options', 'displayOptions' )"
+                type="button"
+                class="select-option"
+                id="select-sorting"
+              >
+                <span id="selectedSortOption">Popularity Descending</span>
+                <span id="pointer-sort-2" class="pointer"></span>
+              </button>
+
+              <div class="options" id="options">
+                <span class="sort-option" id="popularity.desc">
+                  Popularity Descending
+                </span>
+                <span class="sort-option" id="popularity.asc">
+                  Popularity Ascending
+                </span>
+                <span class="sort-option" id="vote_average.desc">
+                  Rating Descending
+                </span>
+                <span class="sort-option" id="vote_average.asc">
+                  Rating Ascending
+                </span>
+                <span class="sort-option" id="primary_release_date.desc">
+                  Release Date Descending
+                </span>
+                <span class="sort-option" id="primary_release_date.asc">
+                  Release Date Ascending
+                </span>
+                <span class="sort-option" id="title.asc">Title (A-Z)</span>
+                <span class="sort-option" id="title.desc">Title (Z-A)</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="filter" class="sort-filter filter">
+            <button
+              onclick="openClose('pointer-filter', 'filterContent', 'openForm')"
+              type="button"
+              class="open-close-button"
+              id="filter-button"
+            >
+              Filters
+              <span id="pointer-filter" class="pointer"></span>
+            </button>
+            <div class="filter-content" id="filterContent">
+              <div class="filter-section">
+                <h3 class="form-heading">Show Me</h3>
+                <label>
+                  <input type="radio" checked />
+                  Everything
+                </label>
+                <label>
+                  <input type="radio" disabled />
+                  Movies I Haven't Seen
+                </label>
+                <label>
+                  <input type="radio" disabled />
+                  Movies I Have Seen
+                </label>
+              </div>
+              <div class="filter-section">
+                <h3 class="form-heading">Release Dates</h3>
+
+                <label for="releases" class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    id="releases"
+                    name="search-all-releases"
+                    value="true"
+                    checked
+                  />
+                  Search all releases?
+                </label>
+                <div id="hiddenCheckboxes" class="hidden-checkboxes">
+                  <label
+                    for="search-all-countries"
+                    class="checkbox-label checkbox-label-countries"
+                  >
+                    <input
+                      type="checkbox"
+                      id="search-all-countries"
+                      name="search-all-countries"
+                      value="true"
+                      checked
+                    />
+                    Search all countries?</label
+                  >
+                  <label for="Theatrical-limited" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="Theatrical-limited"
+                      name="Theatrical-limited"
+                      value="true"
+                      checked
+                    />
+                    Theatrical (limited)</label
+                  >
+                  <label for="theatrical" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="theatrical"
+                      name="releases"
+                      value="true"
+                      checked
+                    />
+                    Theatrical
+                  </label>
+                  <label for="premiere" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="premiere"
+                      name="premiere"
+                      value="true"
+                      checked
+                    />
+                    Premiere
+                  </label>
+                  <label for="digital" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="digital"
+                      name="digital"
+                      value="true"
+                      checked
+                    />
+                    Digital
+                  </label>
+                  <label for="physical" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="physical"
+                      name="physical"
+                      value="true"
+                      checked
+                    />
+                    Physical
+                  </label>
+                  <label for="tv" class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="tv"
+                      name="tv"
+                      value="true"
+                      checked
+                    />
+                    TV
+                  </label>
+                </div>
+
+                <label for="date-from" class="date-label"
+                  >from
+                  <input
+                    class="date-input"
+                    type="date"
+                    id="date-from"
+                    name="date-from"
+                    min="2000-01-01"
+                    max="2026-01-01"
+                /></label>
+
+                <label for="date-to" class="date-label"
+                  >to
+                  <input
+                    class="date-input"
+                    type="date"
+                    id="date-to"
+                    name="date-to"
+                    min="2000-01-01"
+                    max="2026-01-01"
+                /></label>
+              </div>
+              <div class="filter-section">
+                <h3 class="form-heading">Genres</h3>
+                <div class="genres-container" id="genresContainer"></div>
+              </div>
+              <div class="filter-section">
+                <h3 class="form-heading">Language</h3>
+                <select id="language" name="language">
+                  <option value="">--Please choose an option--</option>
+                  <option value="en">English</option>
+                  <option value="ru">Russian</option>
+                  <option value="ar">Arabic</option>
+                  <option value="hy">Armenian</option>
+                </select>
+              </div>
+              <div class="filter-section">
+                <h3 class="form-heading">User Score</h3>
+                <label for="vote_average_gte">from</label>
+                <input
+                  type="range"
+                  id="vote_average_gte"
+                  name="vote_average_gte"
+                  min="0"
+                  max="10"
+                  value="0"
+                  step="1"
+                />
+                <div class="usre-scores">
+                  <span>0</span>
+                  <span>5</span>
+                  <span>10</span>
+                </div>
+                <label for="vote_average_lte">to</label>
+                <input
+                  type="range"
+                  id="vote_average_lte"
+                  name="vote_average_lte"
+                  min="0"
+                  max="10"
+                  value="10"
+                  step="1"
+                />
+                <div class="usre-scores">
+                  <span>0</span>
+                  <span>5</span>
+                  <span>10</span>
+                </div>
+              </div>
+              <div class="filter-section">
+                <h3 class="form-heading">Minimum User Votes</h3>
+                <input
+                  value="0"
+                  type="range"
+                  id="userVotes"
+                  name="vote_count_gte"
+                  min="0"
+                  max="500"
+                  step="50"
+                />
+                <div class="usre-scores">
+                  <span>0</span>
+                  <span>250</span>
+                  <span>500</span>
+                </div>
+              </div>
+              <div class="filter-section">
+                <h3 class="form-heading">Runtime</h3>
+                <label for="with_runtime_gte">from</label>
+                <input
+                  type="range"
+                  id="with_runtime_gte"
+                  name="with_runtime_gte"
+                  min="0"
+                  max="400"
+                  value="0"
+                  step="10"
+                />
+                <div class="usre-scores">
+                  <span>0</span>
+                  <span>200</span>
+                  <span>400</span>
+                </div>
+
+                <label for="with_runtime_lte">to</label>
+                <input
+                  type="range"
+                  id="with_runtime_lte"
+                  name="with_runtime_lte"
+                  min="0"
+                  max="400"
+                  value="400"
+                  step="10"
+                />
+                <div class="usre-scores">
+                  <span>0</span>
+                  <span>200</span>
+                  <span>400</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <span id="search-position">
+            <button
+              type="button"
+              class="form-button search-button"
+              id="searchButton"
+            >
+              Search
+            </button>
+            <button
+              type="submit"
+              class="form-button search-button"
+              id="resetButton"
+            >
+              Reset Filters
+            </button>
+          </span>
+        </form>
+
+        <div class="movies-container">
+          <div class="movies" id="moviesContainer"></div>
+          <button type="button" class="form-button load-button" id="load-more">
+            Load More
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <nav class="footer-content">
+        <div class="footer-join-logo">
+          <img
+            src="/sources/footer/footer-logo.svg"
+            alt="logo"
+            width="130px"
+            height="94px"
+            class="footer-logo"
+          />
+          <a class="join-link" href="#">JOIN THE COMMUNITY</a>
+        </div>
+
+        <div class="footer-links">
+          <h3 class="footer-heading">THE BASICS</h3>
+          <a href="#" class="footer-link">About TMDB</a>
+          <a href="#" class="footer-link">Contact Us</a>
+          <a href="#" class="footer-link">Support Forums</a>
+          <a href="#" class="footer-link">API Documentation</a>
+          <a href="#" class="footer-link">System Status</a>
+        </div>
+
+        <div class="footer-links">
+          <h3 class="footer-heading">GET INVOLVED</h3>
+          <a href="#" class="footer-link">Contribution Bible</a>
+          <a href="#" class="footer-link">Add New Movie</a>
+          <a href="#" class="footer-link">Add New TV Show</a>
+        </div>
+
+        <div class="footer-links">
+          <h3 class="footer-heading">COMMUNITY</h3>
+          <a href="#" class="footer-link">Guidelines</a>
+          <a href="#" class="footer-link">Discussions</a>
+          <a href="#" class="footer-link">Leaderboard</a>
+        </div>
+
+        <div class="footer-links" style="margin-right: 0">
+          <h3 class="footer-heading">LEGAL</h3>
+          <a href="#" class="footer-link">Terms of Use</a>
+          <a href="#" class="footer-link">API Terms of Use</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">DMCA Policy</a>
+        </div>
+      </nav>
+    </footer>
+  </body>
 </html>

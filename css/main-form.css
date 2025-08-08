@@ -1,0 +1,260 @@
+/* --------------------------------------------------------- FORM */
+
+.sorting {
+  max-width: 16.25rem;
+  min-width: 16.25rem;
+}
+
+@media screen and (max-width: 768px) {
+  .sorting {
+    max-width: none;
+    min-width: 16.25rem;
+  }
+}
+
+.form-heading {
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 0.625rem;
+}
+
+.form-button {
+  background-color: var(--light-blue);
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background-color: var(--header-back-color);
+}
+
+/* ---------------------------- SELECT OPTION */
+
+.select-option {
+  align-items: center;
+  background-color: var(--background-grey);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+}
+
+.select-option:hover {
+  filter: brightness(0.9);
+}
+
+.select-option.colorChange {
+  filter: brightness(0.9);
+}
+
+.options {
+  background-color: var(--white);
+  border: 1px solid var(--border-grey);
+  border-radius: 0.25rem;
+  display: none;
+  flex-direction: column;
+  left: 1rem;
+  max-height: 14.125rem;
+  overflow: auto;
+  padding: 0.25rem 0;
+  position: absolute;
+  top: 85px;
+  width: calc(100% - 2rem);
+  z-index: 2;
+}
+
+.options.displayOptions {
+  display: flex;
+}
+
+.sort-option {
+  background-color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.25rem 1rem;
+  text-align: start;
+  transition: 50ms ease;
+}
+
+.sort-option:hover {
+  background-color: var(--background-grey);
+}
+
+.search-button {
+  border-radius: 1.25rem;
+  font-size: 1.2em;
+  font-weight: 600;
+  height: 2.75rem;
+  justify-content: center;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.search-button:disabled {
+  background-color: var(--background-grey);
+  color: rgba(0, 0, 0, 0.5);
+  cursor: auto;
+}
+
+.out-of-view {
+  border-radius: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1;
+}
+
+.open-close-button {
+  align-items: center;
+  background-color: unset;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.1rem;
+  font-weight: 600;
+  height: 3.125rem;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  width: 100%;
+}
+
+.sort-filter {
+  border: 1px solid var(--border-grey);
+  border-radius: 0.75rem;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.129);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.sort-content {
+  border-top: 1px solid var(--border-grey);
+  display: none;
+  flex-direction: column;
+  padding: 0.875rem 1rem;
+  position: relative;
+}
+
+.filter-content {
+  display: none;
+  flex-direction: column;
+  position: relative;
+}
+
+.filter-section {
+  border-top: 1px solid var(--border-grey);
+  display: flex;
+  flex-direction: column;
+  padding: 0.875rem 1rem;
+}
+
+.sort-content.openSort {
+  display: flex;
+}
+
+.filter-content.openForm {
+  display: flex;
+}
+
+/* -----------------------------------------------------------POINTER */
+
+.pointer {
+  border-bottom: black solid 0.19rem;
+  border-right: black solid 0.19rem;
+  height: 0.53rem;
+  transform: rotate(-45deg);
+  transition: 80ms ease;
+  width: 0.53rem;
+}
+
+.pointer.open {
+  transform: rotate(45deg);
+}
+
+/* -----------------------------------------------------------------FILTERS */
+
+.hidden-checkboxes {
+  display: none;
+}
+
+.show-checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-label {
+  margin: 0.1rem 0;
+}
+
+.checkbox-label-countries {
+  margin-bottom: 1.25rem;
+}
+
+.date-input {
+  height: 2rem;
+}
+
+.date-label {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .date-label {
+    justify-content: space-between;
+    width: 60%;
+  }
+}
+
+/* ----------------------------  GENRES*/
+.genres-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.Genres-checkbox {
+  display: none;
+}
+
+.Genres-label {
+  border: solid 1px var(--dark-border-gray);
+  border-radius: 0.875rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 0.4rem 0.5rem 0 0;
+  padding: 0.25rem 0.75rem;
+}
+
+.Genres-label:hover {
+  background-color: var(--light-blue);
+  border-color: var(--light-blue);
+  color: var(--white);
+}
+
+.checked {
+  background-color: var(--light-blue);
+  border-color: var(--light-blue);
+  color: var(--white);
+}
+
+/* ---------------------------------------- RANGES */
+
+.usre-scores {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 100%;
+  min-width: 100%;
+}

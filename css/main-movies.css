@@ -1,0 +1,207 @@
+.movies-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  width: 100%;
+}
+
+.movies {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  width: 100%;
+}
+
+/* ----------------------------------------------- MOVIE CARD */
+
+.movie-card {
+  aspect-ratio: 180/380;
+  border: 1px solid var(--border-grey);
+  border-radius: 0.5rem;
+  box-shadow: var(--movie-card-shadow);
+  display: flex;
+  flex-direction: column;
+  max-width: 15.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.movie-poster {
+  aspect-ratio: 180/271;
+  background-color: var(--poster-background-color);
+  width: 100%;
+}
+
+/* ------------------------- MOVIE DATA */
+
+.movie-data {
+  padding: 10% 0.625rem 0.75rem 0.625rem;
+}
+
+.movie-name {
+  -webkit-box-orient: vertical;
+  cursor: pointer;
+  display: -webkit-box;
+  font-size: 1rem;
+  font-weight: 700;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.movie-name:hover {
+  color: rgba(var(--blue-hover-color));
+}
+
+.movie-relese-date {
+  color: var(--relese-date-txt-color);
+  font-size: 1rem;
+}
+
+.movie-description {
+  display: none;
+}
+
+/* ------------------------ ELEMENTS POSITIOIN ABSOLUTE */
+
+.circle {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.move-rating-circle-1 {
+  align-items: center;
+  background-color: var(--dark-blue-rating);
+  bottom: 24.5%;
+  display: flex;
+  display: flex;
+  font-size: 0.75rem;
+  height: 38px;
+  justify-content: center;
+  left: 7%;
+  letter-spacing: 0.1rem;
+  position: absolute;
+  width: 38px;
+}
+
+.circle-2 {
+  background: conic-gradient(
+    rgba(var(--percent-color-medium), 1) 20%,
+    20%,
+    rgba(var(--percent-color-medium), 0.3) 100%
+  );
+  height: 2.15rem;
+  width: 2.15rem;
+}
+
+.circle-3 {
+  background-color: var(--dark-blue-rating);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  height: 1.9rem;
+  letter-spacing: 0;
+  padding-left: 5%;
+  width: 1.9rem;
+}
+
+.percent {
+  align-items: start;
+  display: flex;
+  font-size: 0.4rem;
+  font-weight: 400;
+  height: 50%;
+}
+
+.movie-options {
+  align-items: center;
+  background-color: var(--transparant-gray);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.75rem;
+  height: 1.1rem;
+  justify-content: center;
+  letter-spacing: 0.1rem;
+  padding: 0 0 0.1rem 0.1rem;
+  position: absolute;
+  right: 7.5%;
+  top: 3%;
+  width: 1.1rem;
+}
+
+.movie-options:hover {
+  background-color: rgba(var(--blue-hover-color));
+  color: transparent;
+}
+
+/* -------------------------------------------- LOAD BUTTON */
+
+.load-button {
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  height: 3.125rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* ------------------------------------------------ MEDIA QUERRY */
+
+@media screen and (max-width: 768px) {
+  .movies-container {
+    align-items: center;
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+
+  .movies {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .movie-card {
+    flex-direction: row;
+    height: 8.8125rem;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .movie-poster {
+    height: 100%;
+    width: auto;
+  }
+
+  .movie-data {
+    padding: 1.25rem 1.25rem;
+    width: 100%;
+  }
+
+  .movie-description {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+
+    font-size: 0.9rem;
+    height: 2.25rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    line-height: 1.1rem;
+    margin-top: 1.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .circle {
+    display: none;
+  }
+
+  .movie-options {
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+/* ------------------------------------------------------- MAIN */
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+
+/* ------------------------------------------------------- HEADING */
+
+.main-heading {
+  color: var(--black);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* ------------------------------------------------------- MAIN CONTAINERS */
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 1.25rem 0;
+  }
+
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sorting {
+    max-width: none;
+    min-width: 16.25rem;
+  }
+
+  .movies-container {
+    align-items: center;
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,21 @@
+@media screen and (max-width: 768px) {
+  :root {
+    --standart-shadow: 2px 2px 8px rgba(0, 0, 0, 0.09);
+    --movie-card-shadow: 0px 0px 10px rgba(0, 0, 0, 0.253);
+  }
+  .desktop-none {
+    display: flex;
+  }
+
+  .mobile-none {
+    display: none;
+  }
+
+  .mobile-block {
+    display: block;
+  }
+}
+
+.desktop-none {
+  display: none;
+}
